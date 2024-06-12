@@ -11,7 +11,7 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      More infomation about this project on
+      立即下载，享受MacOS上的最佳追番体验！更多信息和资料请访问：
       <a href="https://github.com/animacx/animacx" target="_blank" rel="noopener">Gihub</a> -
       <a href="https://afdian.net/a/animacx/" target="_blank" rel="noopener">爱发电</a>.
     </h3>
