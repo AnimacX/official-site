@@ -1,1 +1,0 @@
-import{_ as t,c as o,o as a,a as e,b as s}from"./index-BHjvNe5A.js";const c={},n={class:"about"},_=e("div",null,[s(" contact: "),e("a",{href:"mailto:issue@anix.app"},"Send Email")],-1),r=[_];function i(d,l){return a(),o("div",n,r)}const u=t(c,[["render",i]]);export{u as default};
