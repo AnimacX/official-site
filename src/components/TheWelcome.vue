@@ -1,7 +1,7 @@
 <script setup>
 // redirectToLink
 const redirectToLink = () => {
-  window.open('https://api.anix.app/statistics/release/download/latest?s=www.anix.app', '_blank');
+  window.open('https://api.anix.app/release/download/latest', '_blank');
 }
 </script>
 
