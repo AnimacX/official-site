@@ -39,15 +39,21 @@ const redirectToLink = () => {
   justify-content: center;
   align-items: center;
 }
+
 .rounded-button {
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background-color 0.3s;
-  background-color: var(--vt-c-tint);
+  background: linear-gradient(135deg, #f78fb3, #e667af);
   color: white;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(247, 143, 179, 0.4);
+}
+
+.rounded-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(230, 103, 175, 0.5);
 }
 </style>

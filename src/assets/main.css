@@ -16,17 +16,6 @@ a,
   padding: 3px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    color: var(--vt-c-tint);
-    background-color: rgba(240,189,205,0.35);
-  }
-  button:hover {
-    color: var(--vt-c-tint);
-    background-color: rgba(240,189,205,0.5);
-  }
-}
-
 
 @media (min-width: 1024px) {
   body {
