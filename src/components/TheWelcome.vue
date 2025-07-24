@@ -20,7 +20,7 @@ const redirectToLink = () => {
         </div>
       </div>
       <div class="flex flex-col justify-center items-center">
-        <a class="rounded-button" href="https://afdian.com/p/6df8ed802d9d11f0bee652540025c377">
+        <a class="rounded-button" href="https://afdian.com/a/animacx?tab=feed">
           Download <span class="text-sm text-red-900" >iOS</span>
         </a>
         <div class="text-xs my-1 text-gray-400">
