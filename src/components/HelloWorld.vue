@@ -13,7 +13,15 @@ defineProps({
     <h3>
       <div>立即下载，享受MacOS上的最佳追番体验！更多信息和资料请访问：</div>
       <a href="https://github.com/animacx/animacx" target="_blank" rel="noopener">Github</a> -
-      <a href="https://afdian.net/a/animacx/" target="_blank" rel="noopener">爱发电</a>
+      <a href="https://afdian.net/a/animacx/" target="_blank" rel="noopener">爱发电</a> -
+      <span>
+        <a id="qq-group-link" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=ATbt9kwxKMu_lGK3tK0mQMjFdMbWFaf4&jump_from=webapi&authKey=TeaFGUt0xk4bgOUGBLjC7xld2xUqpGdQ1PclAyKwuUWa9hO17EqsQtB8Zk6XcvBw">
+          交流群
+          <span class="hover">
+            940546952
+          </span>
+        </a>
+      </span>
     </h3>
   </div>
 </template>
