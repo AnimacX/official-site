@@ -1,7 +1,11 @@
 <script setup>
+const beta = defineModel({ type: Boolean })
+
 // redirectToLink
 const redirectToLink = () => {
-  window.location.href = 'https://api.anix.app/release/download/latest';
+  let url = `https://api.anix.app/release/download/latest?beta=${beta.value}`
+  console.log('Redirecting to download link...' + url)
+  window.location.href = url;
 }
 </script>
 
@@ -17,6 +21,10 @@ const redirectToLink = () => {
         </button>
         <div class="text-xs my-1 text-gray-400">
           Support 14.0 or later
+        </div>
+        <div class="flex items-center space-x-5 mt-2">
+          <input type="checkbox" v-model="beta" class="checkbox" id="beta-checkbox"/>
+          <label for="beta-checkbox" class="text-xs text-gray-400">测试版</label>
         </div>
       </div>
       <div class="flex flex-col justify-center items-center">
