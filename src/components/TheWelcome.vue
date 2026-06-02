@@ -225,8 +225,7 @@ const fillStyle = computed(() => {
   right: 0;
   transform: translate(20%, -35%);
   font-size: 0.6rem;
-  background: linear-gradient(135deg, #f78fb3, #e667af);
-  color: white;
+  background: linear-gradient(135deg, #fabcd1, #f0a4cf);
   padding: 0.15em 0.55em;
   border-radius: 999px;
   letter-spacing: 0.5px;
@@ -234,10 +233,12 @@ const fillStyle = computed(() => {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   pointer-events: none;
+  color: #c96b8e;
 }
 
 .version-badge.beta {
-  background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+  background: linear-gradient(135deg, #c7c3fe, #a79df1);
+  color: #6e64d4;
 }
 
 /* ── Hint text ── */
