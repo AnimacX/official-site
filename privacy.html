@@ -1,58 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimacX App</title>
-    <meta name="description" content="AnimacX: 弹弹Play macOS版">
-    <meta keywords="AnimacX, 弹弹Play, macOS, App, 弹幕, 追番, 动漫, 播放器">
+    <title>用户协议与隐私政策 - AnimacX</title>
+    <meta name="description" content="AnimacX: 弹弹Play macOS版 - 用户协议与隐私政策">
+    <meta keywords="AnimacX, 弹弹Play, macOS, App, 弹幕, 追番, 动漫, 播放器, 隐私政策">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#ffe4ec" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
+    <style>
+      :root {
+        --vt-c-white: #ffffff;
+        --vt-c-white-soft: #f8f8f8;
+        --vt-c-white-mute: #f2f2f2;
+        --vt-c-black: #181818;
+        --vt-c-black-soft: #222222;
+        --vt-c-black-mute: #282828;
+        --vt-c-indigo: #2c3e50;
+        --vt-c-tint: rgb(234, 122, 153);
+        --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+        --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+        --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+        --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+        --vt-c-text-light-1: var(--vt-c-indigo);
+        --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+        --vt-c-text-dark-1: var(--vt-c-white);
+        --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+        --color-background: linear-gradient(135deg, #ffe4ec, #f3f4ff);
+        --color-background-soft: var(--vt-c-white-soft);
+        --color-background-mute: var(--vt-c-white-mute);
+        --color-border: var(--vt-c-divider-light-2);
+        --color-border-hover: var(--vt-c-divider-light-1);
+        --color-heading: var(--vt-c-text-light-1);
+        --color-text: var(--vt-c-text-light-1);
+        --accent: rgb(234, 122, 153);
+        --accent-gradient: linear-gradient(135deg, #f78fb3, #e667af);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-background: linear-gradient(135deg, #1a1a2e, #3c1053);
+          --color-background-soft: var(--vt-c-black-soft);
+          --color-background-mute: var(--vt-c-black-mute);
+          --color-border: var(--vt-c-divider-dark-2);
+          --color-border-hover: var(--vt-c-divider-dark-1);
+          --color-heading: var(--vt-c-text-dark-1);
+          --color-text: var(--vt-c-text-dark-2);
+          --accent: #f78fb3;
+          --accent-gradient: linear-gradient(135deg, #f78fb3, #e667af);
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        color: var(--color-text);
+        background: var(--color-background);
+        background-attachment: fixed;
+        line-height: 1.7;
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          'Fira Sans',
+          'Droid Sans',
+          'Helvetica Neue',
+          sans-serif;
+        font-size: 15px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+      }
+
+      a:hover {
+        opacity: 0.8;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .site-header {
+          background: rgba(26, 26, 46, 0.7);
+        }
+      }
+
+      .nav-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--color-heading);
+      }
+
+      .brand img {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.25rem;
+        list-style: none;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a {
+        color: var(--color-text);
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 5rem;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid var(--color-border);
+        border-radius: 18px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .card {
+          background: rgba(34, 34, 34, 0.55);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: var(--color-heading);
+        margin-bottom: 0.75rem;
+        line-height: 1.25;
+      }
+
+      .subtitle {
+        color: var(--color-text);
+        opacity: 0.75;
+        margin-bottom: 2.5rem;
+        font-size: 0.95rem;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+        color: var(--color-heading);
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      p {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      .back-home {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2.5rem;
+        padding: 0.7em 1.6em;
+        border-radius: 999px;
+        background: var(--accent-gradient);
+        color: #fff;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(234, 122, 153, 0.35);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .back-home:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(234, 122, 153, 0.45);
+        opacity: 1;
+      }
+
+      .footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--color-border);
+        font-size: 0.85rem;
+        color: var(--color-text);
+        opacity: 0.8;
+        text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 2rem 1rem 4rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        .nav-inner {
+          padding: 0.75rem 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>用户协议与隐私政策</h1>
-    <div>
+    <header class="site-header">
+      <div class="nav-inner">
+        <a class="brand" href="/">
+          <img src="/favicon.ico" alt="AnimacX Logo">
+          <span>AnimacX</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">首页</a></li>
+          <li><a href="/privacy.html">关于</a></li>
+        </ul>
+      </div>
+    </header>
 
-数据存储、同步与第三方服务说明
+    <main>
+      <article class="card">
+        <h1>用户协议与隐私政策</h1>
+        <p class="subtitle">数据存储、同步与第三方服务说明</p>
 
-1. 追番记录与播放记录
+        <h2>1. 追番记录与播放记录</h2>
+        <p>您的追番记录、播放记录及相关使用数据，默认通过 Apple 提供的 iCloud 服务进行私有化存储，并用于您在不同设备之间进行数据同步。</p>
+        <p>AnimacX 原则上不会将上述数据上传至 AnimacX 自有服务器，也不会主动访问或收集存储于您 iCloud 账户中的相关数据。相关数据的存储、同步及安全性同时受 Apple iCloud 服务条款及隐私政策约束。</p>
+        <p>当您在 AnimacX 中登录 Bangumi 账户并启用相关同步功能时，即表示您知悉并同意，部分追番记录、观看进度、收藏状态或其他与 Bangumi 服务相关的数据，可能根据您的操作同步并上传至 Bangumi.tv 所运营的第三方服务器。</p>
+        <p>该等数据由 Bangumi.tv 按照其用户协议、隐私政策及相关规则进行处理。AnimacX 无法控制 Bangumi.tv 对相关数据的具体存储、使用和保护方式。</p>
 
-您的追番记录、播放记录及相关使用数据，默认通过 Apple 提供的 iCloud 服务进行私有化存储，并用于您在不同设备之间进行数据同步。
+        <h2>2. 弹幕数据</h2>
+        <p>当您通过 AnimacX 发送弹幕时，即表示您同意该弹幕内容及必要的关联信息存储于 AnimacX 服务器，以实现弹幕展示、同步、管理、审核及相关社区功能。</p>
+        <p>弹幕数据仅与您的 Bangumi 账户标识或应用生成的必要识别信息关联。AnimacX 不会基于弹幕功能额外收集或关联您的真实姓名、联系电话、通讯地址、身份证件信息等个人身份信息。</p>
+        <p>请您注意，弹幕属于可能向其他用户公开展示的内容。您不应在弹幕中主动发布本人或他人的个人信息、隐私信息、违法信息或其他不适宜公开传播的内容。</p>
 
-AnimacX 原则上不会将上述数据上传至 AnimacX 自有服务器，也不会主动访问或收集存储于您 iCloud 账户中的相关数据。相关数据的存储、同步及安全性同时受 Apple iCloud 服务条款及隐私政策约束。
+        <h2>3. 评论与社区功能</h2>
+        <p>AnimacX 中与条目评论、讨论、评分及社区互动有关的功能由 Bangumi.tv 提供。</p>
+        <p>AnimacX 仅在您授权登录 Bangumi 账户后，通过 Bangumi.tv 提供的接口读取、展示或提交相关数据。AnimacX 不会将该等评论、讨论或社区数据作为 AnimacX 自有数据进行独立采集、存储或建立用户画像。</p>
+        <p>当您登录 Bangumi 账户并使用相关功能时，即表示您授权 AnimacX 在实现评论展示、内容发布、账户状态同步及其他必要功能的范围内，访问和使用由 Bangumi.tv 提供的相关账户及社区数据。</p>
+        <p>相关数据的最终存储、处理及管理由 Bangumi.tv 负责，并受 Bangumi.tv 的用户协议、隐私政策及社区规则约束。</p>
 
-当您在 AnimacX 中登录 Bangumi 账户并启用相关同步功能时，即表示您知悉并同意，部分追番记录、观看进度、收藏状态或其他与 Bangumi 服务相关的数据，可能根据您的操作同步并上传至 Bangumi.tv 所运营的第三方服务器。
+        <h2>4. 第三方服务责任说明</h2>
+        <p>iCloud 与 Bangumi.tv 均属于由第三方独立提供和运营的服务。第三方服务可能因其自身规则调整、系统维护、接口变更、服务中断或其他原因影响 AnimacX 中相关功能的正常使用。</p>
+        <p>对于第三方服务自身的数据处理行为、服务可用性及其造成的影响，AnimacX 将在法律允许的范围内协助您处理相关问题，但不对第三方服务的运营行为承担超出法律规定范围的责任。</p>
 
-该等数据由 Bangumi.tv 按照其用户协议、隐私政策及相关规则进行处理。AnimacX 无法控制 Bangumi.tv 对相关数据的具体存储、使用和保护方式。
+        <footer class="footer">
+          <p>© 2024 AnimacX。保留所有权利。应用内容仅供参考。AnimacX 不对其正确性、完整性、可靠性、适用性或其他方面提供任何明示或暗示的保证。AnimacX 保留修改、删除、更新应用内容，随时撤销用户权限等所有权利。</p>
+        </footer>
 
-2. 弹幕数据
-
-当您通过 AnimacX 发送弹幕时，即表示您同意该弹幕内容及必要的关联信息存储于 AnimacX 服务器，以实现弹幕展示、同步、管理、审核及相关社区功能。
-
-弹幕数据仅与您的 Bangumi 账户标识或应用生成的必要识别信息关联。AnimacX 不会基于弹幕功能额外收集或关联您的真实姓名、联系电话、通讯地址、身份证件信息等个人身份信息。
-
-请您注意，弹幕属于可能向其他用户公开展示的内容。您不应在弹幕中主动发布本人或他人的个人信息、隐私信息、违法信息或其他不适宜公开传播的内容。
-
-3. 评论与社区功能
-
-AnimacX 中与条目评论、讨论、评分及社区互动有关的功能由 Bangumi.tv 提供。
-
-AnimacX 仅在您授权登录 Bangumi 账户后，通过 Bangumi.tv 提供的接口读取、展示或提交相关数据。AnimacX 不会将该等评论、讨论或社区数据作为 AnimacX 自有数据进行独立采集、存储或建立用户画像。
-
-当您登录 Bangumi 账户并使用相关功能时，即表示您授权 AnimacX 在实现评论展示、内容发布、账户状态同步及其他必要功能的范围内，访问和使用由 Bangumi.tv 提供的相关账户及社区数据。
-
-相关数据的最终存储、处理及管理由 Bangumi.tv 负责，并受 Bangumi.tv 的用户协议、隐私政策及社区规则约束。
-
-4. 第三方服务责任说明
-
-iCloud 与 Bangumi.tv 均属于由第三方独立提供和运营的服务。第三方服务可能因其自身规则调整、系统维护、接口变更、服务中断或其他原因影响 AnimacX 中相关功能的正常使用。
-
-对于第三方服务自身的数据处理行为、服务可用性及其造成的影响，AnimacX 将在法律允许的范围内协助您处理相关问题，但不对第三方服务的运营行为承担超出法律规定范围的责任。
-
-© 2024 AnimacX。保留所有权利。应用内容仅供参考。 AnimacX 不对其正确性、完整性、可靠性、适用性或其他方面提供任何明示或暗示的保证。 AnimacX 保留修改、删除、更新应用内容，随时撤销用户权限等所有权利。
-
-    </div>
+        <a class="back-home" href="/">← 返回首页</a>
+      </article>
+    </main>
   </body>
 </html>
