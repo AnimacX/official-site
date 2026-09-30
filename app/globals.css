@@ -166,9 +166,6 @@ footer p { text-align: center; }
 .legal-meta { display: flex; align-items: center; gap: 9px; margin-bottom: 64px; color: #777d8b; font-size: 11px; }
 .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #f477a2; box-shadow: 0 0 13px rgba(244,119,162,.7); }
 .legal-copy { white-space: pre-wrap; color: #c7cad3; font-size: 15px; line-height: 2; }
-.legal-error { margin: 50px 0; padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.035); }
-.legal-error h2 { margin: 0 0 10px; font-size: 20px; }
-.legal-error p { margin: 0; color: #8c919f; font-size: 14px; }
 .legal-source { display: inline-block; margin-top: 56px; color: #f88ab0; font-size: 13px; }
 
 @media (max-width: 1000px) {

@@ -175,7 +175,7 @@ export default function Home() {
         <p>让喜欢的作品，在每一块屏幕上继续播放。</p>
         <div className="footer-links">
           <a href="https://github.com/AnimacX/AnimacX" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/privacy.html">隐私协议</a>
+          <a href="/privacy">隐私协议</a>
           <a href="https://github.com/AnimacX/AnimacX/issues" target="_blank" rel="noreferrer">支持</a>
           <a href="#top">返回顶部 ↑</a>
         </div>
