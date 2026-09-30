@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+# 沿用旧的发布约定：打 tag 时才上线，另外支持在 Actions 页面手动触发。
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
+  workflow_dispatch:
+
+# gh-pages 分支由 workflow 直接推送，需要写权限。
+permissions:
+  contents: write
+
+# 同一时间只允许一次部署，新的推送取消排队中的旧任务。
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site 🔧
+        run: npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # output: 'export' 的站点产物在 dist/client，dist/server 是 Worker 产物，不上传。
+          folder: dist/client
+          branch: gh-pages
+          clean: true
+          # CNAME 由构建产物携带，这里再兜一层，避免清理时丢掉自定义域名。
+          clean-exclude: CNAME
