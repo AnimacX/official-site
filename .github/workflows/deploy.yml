@@ -1,10 +1,18 @@
 name: Deploy to GitHub Pages
 
-# 沿用旧的发布约定：打 tag 时才上线，另外支持在 Actions 页面手动触发。
+# 三种触发方式：
+#   - 推送形如 1.0.0 的 tag（沿用旧的发布约定）
+#   - 每天定时重建，让隐私协议正文跟上服务端的最新内容
+#   - 在 Actions 页面手动触发
 on:
   push:
     tags:
       - '[0-9]*.[0-9]*.[0-9]*'
+  # cron 走 UTC，北京时间 = UTC+8，所以 17:00 对应次日凌晨 01:00。
+  # 注意 schedule 只在默认分支（main）上的 workflow 文件里生效，
+  # 改完必须推到 main，否则定时任务不会启用。
+  schedule:
+    - cron: '0 17 * * *'
   workflow_dispatch:
 
 # gh-pages 分支由 workflow 直接推送，需要写权限。
@@ -22,6 +30,38 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          # 定时构建要切到最新 tag，浅克隆取不到全部 tag，所以拉完整历史。
+          fetch-depth: 0
+
+      # 定时构建必须基于已发布的 tag，不能图省事直接用 main：main 上可能躺着
+      # 还没打算上线的改动，直接构建会把它悄悄发出去。tag 触发时检出的本来就是
+      # 那个 tag，无需切换；手动触发保持 main，方便临时验证。
+      - name: Pin to latest release 🔖
+        if: github.event_name == 'schedule'
+        run: |
+          ref=$(git tag --list '[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n1)
+          if [ -z "$ref" ]; then
+            echo "::error::找不到形如 1.0.0 的版本 tag，无法确定要重建的版本"
+            exit 1
+          fi
+          echo "定时重建，使用最新 tag：$ref"
+          git checkout --force "$ref"
+
+      # 临时诊断：runner 在 Azure 美东，此前构建稳定卡在 /privacy 的 500，
+      # 需要确认它到底能不能访问隐私接口。查明原因后可删掉这一步。
+      - name: Probe privacy API 🩺
+        run: |
+          echo "--- DNS ---"
+          getent hosts api.anix.app || echo "getent 无结果"
+          echo "--- 请求 ---"
+          curl -sS -m 25 -o /tmp/privacy.txt \
+            -w 'status=%{http_code} size=%{size_download} dns=%{time_namelookup}s connect=%{time_connect}s total=%{time_total}s\n' \
+            https://api.anix.app/kv/data_usage_privacy || echo "curl 退出码 $?"
+          echo "--- 响应头 ---"
+          curl -sS -m 25 -o /dev/null -D - https://api.anix.app/kv/data_usage_privacy 2>&1 | head -15 || true
+          echo "--- 正文前 200 字符 ---"
+          head -c 200 /tmp/privacy.txt 2>/dev/null || echo "(没拿到正文)"
 
       - name: Setup Node
         uses: actions/setup-node@v4
